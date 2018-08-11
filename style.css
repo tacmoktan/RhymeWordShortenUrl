@@ -58,13 +58,29 @@ body {
 .button {
     background: rgba(106, 64, 214, 0.281);
     color:black;    
-    padding:10px;
+    padding:15px;
+    font-size:15px;
     margin:5px auto;
     border-radius:5px;
     border:none;
     cursor:pointer;
 }
 .button:hover{ /*don't leave space inbetween button and :hover*/
+    background: rgb(0, 0, 0);
+    color:white;
+}
+
+.buttonSwitch{
+    background: rgba(180, 18, 18, 0.849);
+    color:rgb(0, 0, 0);    
+    padding:20px;
+    font-size:20px;
+    margin:5px auto;
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+}
+.buttonSwitch:hover{
     background: rgb(0, 0, 0);
     color:white;
 }

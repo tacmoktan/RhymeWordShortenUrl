@@ -4,7 +4,7 @@ const renderResponseDatamuse = (res)=>{
         console.log(res.status);
     }else if(!res.length){
         console.log('length 0...write something');
-        displayData.innerHTML = `Type a proper word dumbass!!`;
+        displayData.innerHTML = `<h4>Type a proper word dumbass!! </h4>`;
     }else{
         //console.log(res);
         
@@ -16,8 +16,8 @@ const renderResponseDatamuse = (res)=>{
 
         //to generate Random words
         //key sections starts
-         let keys = randomNoGenerator();
-        console.log(keys);
+        let keys = randomNoGenerator();
+        //console.log(keys); //array of generated random numbers
         keys.forEach( key =>{
             if(res[key]!=undefined)
                 wordList.push(`<li>${res[key].word}</li>`);

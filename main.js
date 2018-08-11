@@ -23,7 +23,7 @@ const getData = async () => {
         }
     }catch(error){
         console.log(error);
-        displayData.innerHTML = "Request failed!";
+        displayData.innerHTML = "<h4>Request failed!</h4>";
         displayData.style.display ="block";
     }
 }
@@ -73,7 +73,7 @@ const postData = async () =>{
         }
     }catch(error){
         console.log(error);
-        displayData.innerHTML = "Request failed!";
+        displayData.innerHTML = "<h4>Request failed!</h4>";
         displayData.style.display ="block";
     }
 }
