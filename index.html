@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/jpg" href="favicon/ninja.jpg">
+    <title>Rhyme Word/Shorten Url</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    
+</head>
+<body>
+    <div id ="master">
+        <div id="logo">
+            <h1 id="title">Word Rhymer</h1>
+        </div>
+        <form id="formControl">
+            <h3>Enter a word here!</h3>
+            <input id ="input" value="" align="middle"> <!--id=inputField -->
+            <p><button class="button" id="submit">Submit</button>     <!--id = buttonSend, textContent =Send-->
+                <button class="button" id="shorten">Shorten</button> <!--id=buttonSendUrl, textContent =Shorten-->
+            </p>
+        </form>
+        <div id ="displayData">
+           
+        </div>
+        <button class="button" id="datamuseApi">Switch to Datamuse API</button>
+        <button class="button" id="urlShortener">Switch to URL shortener API</button>
+    </div>
+    <script src="main.js"></script>
+    <script src="public/helperfunctions.js"></script>
+</body>
+</html>
