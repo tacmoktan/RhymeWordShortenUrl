@@ -22,8 +22,8 @@ const getData = async () => {
             throw new Error('Request failed!');
         }
     }catch(error){
-        console.log(error);
-        displayData.innerHTML = "<h4>Request failed!</h4>";
+        //console.log(error);
+        displayData.innerHTML = `<h4>${error}</h4>`;
         displayData.style.display ="block";
     }
 }
@@ -69,11 +69,10 @@ const postData = async () =>{
             renderResponseUrl(jsonResponseUrl);
         }else{
             throw new Error('Request failed!');
-           
         }
     }catch(error){
         console.log(error);
-        displayData.innerHTML = "<h4>Request failed!</h4>";
+        displayData.innerHTML = `<h4>${error}</h4>`;
         displayData.style.display ="block";
     }
 }
@@ -93,6 +92,7 @@ const switchDatamuse = document.querySelector("#datamuseApi");
 const switchUrlShortener = document.querySelector('#urlShortener');
 let pageBanner = document.querySelector('#title');
 let instructInput = document.querySelector('h3'); 
+let pTag = document.querySelector('#formControl p'); //new element added to solve Enter key error
 
 switchUrlShortener.onclick = ()=>{
     emptyDisplayData();
@@ -102,7 +102,10 @@ switchUrlShortener.onclick = ()=>{
     pageBanner.textContent = "Url Shortener";
     instructInput.textContent = "Enter a url here!";
 
-    submit.style.display = "none";
+    pTag.replaceChild(shorten,submit) ; //replaces submit element with shorten element
+    //so that when pressed enter , it triggers the shorten button
+
+    //submit.style.display = "none"; //not needed
     shorten.style.display = "block";
 
     switchDatamuse.style.display = "block";
@@ -116,10 +119,13 @@ switchDatamuse.onclick = ()=>{
 
     pageBanner.textContent = "Word Rhymer";
     instructInput.textContent = "Enter a word here!";
-    
+
+    pTag.replaceChild(submit,shorten);
+    /* //not needed
     submit.style.display = "block";
     shorten.style.display = "none";
-
+    */
     switchDatamuse.style.display ="none";
     switchUrlShortener.style.display = "block";
+
 }
