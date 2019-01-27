@@ -4,7 +4,7 @@ const renderResponseDatamuse = (res)=>{
         console.log(res.status);
     }else if(!res.length){
         console.log('length 0...write something');
-        displayData.innerHTML = `<h4>Type a proper word dumbass!! </h4>`;
+        displayData.innerHTML = `<h4>Type a proper word!! </h4>`;
     }else{
         //console.log(res);
         
