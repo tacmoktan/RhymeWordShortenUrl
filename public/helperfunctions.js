@@ -29,26 +29,26 @@ const renderResponseDatamuse = (res)=>{
     }
     displayData.style.display="block";
 }
-//extra feature to produce random words
+//extra feature to produce random & unique words
 const randomNoGenerator=()=>{
 
-    let a = [];
-    let x;
+    let a = [];    //array to store random & unique numbers
+    
     let i=0;
     while(i<100){
-        let count=0;
-        x = (parseInt(Math.random()*40));
-        a.forEach(item => {
-        if(x === item){
-            count++;
-        }
+        let randomNum = (Math.floor(Math.random()*40));  //generates random no. from 0 to 40
+        let count=1;            //counts occurence of number x i.e. initially once
+        
+        a.forEach(num => {
+            if(num === randomNum)
+                count++;       //i.e num has occured more than once (not a unique number)
         });
-        if(count===0)
-            a.push(x);
+
+        if(count===1)      
+            a.push(randomNum);
 
         if(a.length===10)
             break;
-        i++;
     }
     return a;
 }
