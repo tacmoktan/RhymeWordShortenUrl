@@ -4,7 +4,7 @@ const renderResponseDatamuse = (res)=>{
         console.log(res.status);
     }else if(!res.length){
         console.log('length 0...write something');
-        displayData.innerHTML = `<h4>Type a proper word!! </h4>`;
+        displayData.innerHTML = `<h4 class="errorMessage">Type a proper word!! </h4>`;
     }else{
         //console.log(res);
         
@@ -25,9 +25,9 @@ const renderResponseDatamuse = (res)=>{
         //key sections ends
         
         wordList = wordList.join("");  //.join('') turns the array into single string
-        displayData.innerHTML = `<b>You might be interested in these words:</b> <br><ol>${wordList}</ol>`;
+        displayData.innerHTML = `<div id="responseWords"> <b>You might be interested in these words:</b> <br><ol>${wordList}</ol> </div>`;
     }
-    displayData.style.display="block";
+    /* displayData.style.display="block"; */
 }
 //extra feature to produce random & unique words
 const randomNoGenerator=()=>{
@@ -61,9 +61,9 @@ const renderResponseUrl = (resUrl) =>{
     if(!len){
         console.log(resUrl.status);
     }else{
-        displayData.innerHTML = `<b>Shortened Url:</b> <br> ${resUrl.shortUrl}`;
+        displayData.innerHTML = `<div id="shortenedUrl"><b>Shortened Url:</b>${resUrl.shortUrl}</div>`;
         //console.log(resUrl);
         
     }
-    displayData.style.display ="block";
+    /* displayData.style.display ="block"; */
 }

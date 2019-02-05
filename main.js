@@ -23,8 +23,7 @@ const getData = async () => {
         }
     }catch(error){
         //console.log(error);
-        displayData.innerHTML = `<h4>${error}</h4>`;
-        displayData.style.display ="block";
+        displayData.innerHTML = `<h4 class="errorMessage">${error}</h4>`;
     }
 }
 
@@ -72,8 +71,7 @@ const postData = async () =>{
         }
     }catch(error){
         console.log(error);
-        displayData.innerHTML = `<h4>${error}</h4>`;
-        displayData.style.display ="block";
+        displayData.innerHTML = `<h4 class="errorMessage">${error}</h4>`;
     }
 }
 
@@ -92,17 +90,17 @@ const switchDatamuse = document.querySelector("#datamuseApi");
 const switchUrlShortener = document.querySelector('#urlShortener');
 let pageBanner = document.querySelector('#title');
 let instructInput = document.querySelector('h3'); 
-let pTag = document.querySelector('#formControl p'); //new element added to solve Enter key error
+let formButtons = document.querySelector('.form.buttons'); //new element added to solve Enter key error
 
 switchUrlShortener.onclick = ()=>{
     emptyDisplayData();
     input.value ="";
-    displayData.style.display ="none";
+    displayData.innerHTML =" ";
 
     pageBanner.textContent = "Url Shortener";
     instructInput.textContent = "Enter a url here!";
 
-    pTag.replaceChild(shorten,submit) ; //replaces submit element with shorten element
+    formButtons.replaceChild(shorten,submit) ; //replaces submit element with shorten element
     //so that when pressed enter , it triggers the shorten button
 
     //submit.style.display = "none"; //not needed
@@ -115,12 +113,11 @@ switchUrlShortener.onclick = ()=>{
 switchDatamuse.onclick = ()=>{
     emptyDisplayData();
     input.value="";
-    displayData.style.display ="none";
-
+    displayData.innerHTML = " ";
     pageBanner.textContent = "Word Rhymer";
     instructInput.textContent = "Enter a word here!";
 
-    pTag.replaceChild(submit,shorten);
+    formButtons.replaceChild(submit,shorten);
     /* //not needed
     submit.style.display = "block";
     shorten.style.display = "none";

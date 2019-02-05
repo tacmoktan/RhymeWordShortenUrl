@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,38 @@
     <title>Rhyme Word/Shorten Url</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    
+
 </head>
+
 <body>
-    <div id ="master">
-        <div id="logo">
-            <h1 id="title">Word Rhymer</h1>
+    <div id="master">
+        <div id="container">
+
+            <h1 id="title" class="section title">Word Rhymer</h1>
+
+            <form id="formControl" class="section form">
+                <h3 id="form-header">Enter a word here!</h3>
+                <input id="input" autofocus required />
+                <div class="form buttons">
+                    <button class="button" id="submit">Submit</button>
+                    <button class="button" id="shorten">Shorten</button>
+                </div>
+                <!--button(first child of formbuttons) is triggered when pressed enter -->
+                <!--Or the first button is triggered when pressed enter,check that by swapping those button element's position -->
+            </form>
+
+            <div id="displayData" class="section data">
+
+            </div>
+
         </div>
-        <form id="formControl">
-            <h3>Enter a word here!</h3>
-            <input id ="input" value="" align="middle" > 
-            <p><button class="button" id="submit" >Submit</button>
-                <button class="button" id="shorten" >Shorten</button></p>
-            <!--button(first child of p tag) is triggered when pressed enter -->
-            <!--Or the first button is triggered when pressed enter,check that by swapping those button element's position -->
-        </form>
-        <div id ="displayData">
-           
+        <div class="section buttons">
+            <button class="buttonSwitch" id="datamuseApi">Switch to Word Rhymer </button>
+            <button class="buttonSwitch" id="urlShortener">Switch to URL shortener </button>
         </div>
-        <button class="buttonSwitch" id="datamuseApi">Switch to Word Rhymer </button>
-        <button class="buttonSwitch" id="urlShortener">Switch to URL shortener </button>
     </div>
     <script src="main.js"></script>
     <script src="public/helperfunctions.js"></script>
 </body>
+
 </html>

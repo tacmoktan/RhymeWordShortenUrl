@@ -1,40 +1,80 @@
-body {
+* {
     padding:0;
     margin:0;
 }
 #master {
-    padding:5px;
-    margin:5px auto;
-    background:rgb(90, 218, 179);
-    color: white;
-    text-align:center;
+    display: grid;
+    justify-content: center;
+    background:linear-gradient(30deg,rgba(255, 0, 0, 0.644),rgba(0, 0, 255, 0.644));
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height:auto;
-}
-#logo {
-    padding:5px;
-    margin:5px;    
+    /* height: 100vh; */
 }
 
-#formControl {
+#container{
+    display: grid;
+    grid-row-gap: 25px;
+    /* border: 1px solid black; */
+    /* height:50vh; */
     padding:5px;
-    max-width:500px;
-    margin:15px auto;
-    border-style:solid;
-    border-color: white;
-    border-radius:5px;
-    color:white;
+}
+.section{
+    display:grid;
+    justify-content: center;
+    padding:15px;
+}
+.section.buttons{
+    padding:1px;
+}
+#title{
+    justify-self: center;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.856);
+    font-size: 40px;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-radius: 5px;
+    width:20vw;
+    
+    animation:curveBorder 2s ease;
+    animation-fill-mode:forwards;
+    position:relative;
+}
+@keyframes curveBorder{
+    100%{border-radius:15px;
+    width:25vw;}
+}
+#title,#displayData{
+    min-width:280px;
+}
+#formControl {
+    display: grid;
+    grid-row-gap: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.856);
+    border-right: 1px solid rgba(255, 255, 255, 0.856);
+    box-shadow:0px 0px 30px rgba(255, 255, 255, 0.856);
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.856);
+}
+#form-header{
+    text-align:center;
 }
 /*inputField*/
 #input {
-    background:rgb(90, 218, 179);;
-    border-style:solid;
-    border-color:white;
+    background:transparent;
+    border:2px solid rgba(180, 18, 18, 0.534);
     border-radius:5px;
-    height:20px;
+    width:250px;
+    height:30px;
     color:white;
-    max-width:100%;
     text-align: center;
+    outline:none;
+}
+#input:focus{
+    box-shadow:0px 0px 20px rgba(180, 18, 18, 0.849);
+}
+.form.buttons{
+    display:grid;
+    justify-content: center;
 }
 /*buttonSend*/
 #submit{
@@ -46,43 +86,101 @@ body {
 }
 
 #displayData{
+    border-top:4px solid rgba(204, 117, 54, 0.699);
+    border-radius: 15px; 
+    height: 35vh; 
+    
+}
+#responseWords{
+    text-align:center;
+    position:relative;
+    animation:fade 1s ease-in;
+    animation-fill-mode:forwards;
+}
+@keyframes fade{
+    0%{color:transparent;}
+    100%{color:rgba(0, 0, 0, 0.856);}
+}
+ol{
+    display: grid;
+    justify-content: center;
+    text-align: left;
+    word-spacing: .5cm;
+}
+#shortenedUrl{ /* this id is added using js after the response object is found */
+    display: grid;
+    height: 50px;
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    color: transparent;
+    background: transparent;
 
-    border-style:solid;
-    border-color: rgba(204, 117, 54, 0.699);
-    border-radius:5px;
-    max-width:300px;
-    padding:5px;
-    margin:0 auto;
-    display:none;   
+    border-radius: 10px;
+    padding: 15px;
+    animation:fadeShortUrl 1s ease-in;
+    animation-fill-mode:forwards;
+    position:relative;
+}
+@keyframes fadeShortUrl {
+    100%{
+        border-top: 5px solid #0080009e;
+        border-bottom: 5px solid #0080009e;
+        color: rgba(0, 0, 0, 0.856);
+        background: rgba(255, 255, 255, 0.856);
+    }
+}
+
+.errorMessage{ /* this class is added using js when the response object isnt found */
+    background: rgba(3, 168, 244, 0);
+    color: #ff000000;
+    border-top:5px solid #ff000000;
+    border-bottom:5px solid #ff000000;
+    padding: 15px;
+    height: 20px;
+    border-radius: 5px;
+    animation:errorFade .3s ease-in;
+    animation-fill-mode:forwards;
+}
+@keyframes errorFade{
+    100%{
+        background: rgba(3, 169, 244, 0.12);
+        color: #ff0000c2;
+        border-top:5px solid #ff00009c;
+        border-bottom:5px solid #ff00009c;
+    }
 }
 .button {
-    background: rgba(106, 64, 214, 0.281);
-    color:black;    
+    background: rgba(106, 64, 214, 0.66);
+    color:rgba(0, 0, 0, 0.856);    
     padding:15px;
     font-size:15px;
-    margin:5px auto;
+    font-weight:bold;
     border-radius:5px;
     border:none;
+    outline:none;
     cursor:pointer;
+    transition:.3s ease-in;
 }
 .button:hover{ /*don't leave space inbetween button and :hover*/
-    background: rgb(0, 0, 0);
-    color:white;
+    background: rgba(0, 0, 0, 0.856);
+    color:rgba(255, 255, 255, 0.856);
 }
 
 .buttonSwitch{
     background: rgba(180, 18, 18, 0.849);
-    color:rgb(0, 0, 0);    
+    color:rgba(0, 0, 0, 0.856);    
     padding:20px;
     font-size:20px;
     margin:5px auto;
     border-radius:5px;
     border:none;
+    outline:none;
     cursor:pointer;
+    transition:.3s ease-in;
 }
 .buttonSwitch:hover{
-    background: rgb(0, 0, 0);
-    color:white;
+    background: rgba(0, 0, 0, 0.856);
+    color:rgba(255, 255, 255, 0.856);
 }
 
 #urlShortener{
@@ -91,13 +189,13 @@ body {
 #datamuseApi{
     display:none;
 }
-
+/*
 @media screen and(max-width:600px){
     #master #logo,#title,#formControl,#displayData {
         width:100%;
     }
-    /*inputField*/
+    
     #input{
         width:100%;
     }
-}
+}*/
